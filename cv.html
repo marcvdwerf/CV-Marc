@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marc van der Werf - Creative CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --gold: #ffd700;
+      --black: #000000;
+      --dark-gray: #1a1a1a;
+      --medium-gray: #666666;
+      --light-gray: #f5f5f5;
+      --accent-gradient: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 210mm;
+      margin: 0 auto;
+      background: white;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* Decorative Elements */
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: var(--accent-gradient);
+      z-index: 10;
+    }
+
+    .container::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: var(--accent-gradient);
+      z-index: 10;
+    }
+
+    /* Animated Background Pattern */
+    .header {
+      background: var(--black);
+      color: white;
+      padding: 3.5rem 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .header::after {
+      content: '⚽';
+      position: absolute;
+      bottom: 20px;
+      right: 40px;
+      font-size: 120px;
+      opacity: 0.05;
+      transform: rotate(-15deg);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .name-section {
+      flex: 1;
+    }
+
+    .name-section h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .title {
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    /* Profile Image with Creative Border */
+    .profile-image {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      flex-shrink: 0;
+    }
+
+    .profile-image::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      background: var(--accent-gradient);
+      border-radius: 50%;
+      animation: rotate 8s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .profile-image-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid var(--black);
+      background: var(--medium-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+
+    .profile-image-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem 2rem;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-top: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      transition: transform 0.2s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateX(5px);
+    }
+
+    .contact-item::before {
+      content: attr(data-icon);
+      font-size: 1.2rem;
+      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
+    }
+
+    /* Main Content with Creative Layout */
+    .main-content {
+      padding: 3rem;
+      background: white;
+      position: relative;
+    }
+
+    /* Floating Accent Elements */
+    .accent-dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      opacity: 0.3;
+    }
+
+    .accent-dot:nth-child(1) { top: 10%; left: 2%; }
+    .accent-dot:nth-child(2) { top: 30%; right: 3%; }
+    .accent-dot:nth-child(3) { bottom: 20%; left: 5%; }
+
+    /* Section with Creative Headers */
+    .section {
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 100%;
+      background: var(--accent-gradient);
+      border-radius: 3px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background: var(--accent-gradient);
+      border-radius: 3px;
+    }
+
+    /* Creative Profile Card */
+    .profile-card {
+      background: linear-gradient(135deg, var(--light-gray) 0%, white 100%);
+      padding: 2rem;
+      border-radius: 12px;
+      border-left: 5px solid var(--gold);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    .profile-card::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      font-size: 4rem;
+      color: var(--gold);
+      opacity: 0.2;
+      font-family: Georgia, serif;
+    }
+
+    .profile-text {
+      color: var(--medium-gray);
+      font-size: 1rem;
+      line-height: 1.8;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Skills with Visual Progress */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem 2rem;
+    }
+
+    .skill-item {
+      color: var(--medium-gray);
+      font-size: 0.95rem;
+      padding: 0.8rem 1rem 0.8rem 3rem;
+      position: relative;
+      background: var(--light-gray);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .skill-item:hover {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+      border-left-color: var(--gold);
+      transform: translateX(5px);
+    }
+
+    .skill-item::before {
+      content: '★';
+      position: absolute;
+      left: 1rem;
+      color: var(--gold);
+      font-size: 1.2rem;
+    }
+
+    /* Founder Highlight - EXTRA OPVALLEND */
+    .founder-highlight {
+      background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.15) 0%, 
+        rgba(255, 215, 0, 0.05) 50%,
+        rgba(255, 215, 0, 0.15) 100%);
+      border: 3px solid var(--gold);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .founder-highlight::before {
+      content: '🌍';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 80px;
+      opacity: 0.1;
+    }
+
+    .founder-highlight::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+    }
+
+    .founder-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      padding: 0.5rem 1.2rem;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
+    }
+
+    .founder-highlight .job-title {
+      color: var(--black);
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .founder-highlight .company {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 1.5rem;
+    }
+
+    .founder-tagline {
+      color: var(--medium-gray);
+      font-size: 1.05rem;
+      margin: 1rem 0 1.5rem;
+      font-weight: 500;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    .founder-website {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--black);
+      background: var(--gold);
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+    }
+
+    .founder-website:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+    }
+
+    /* Experience with Timeline */
+    .experience-item {
+      margin-bottom: 2.5rem;
+      padding-left: 2rem;
+      border-left: 2px solid var(--light-gray);
+      position: relative;
+    }
+
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px white, 0 0 0 5px var(--gold);
+    }
+
+    .experience-header {
+      margin-bottom: 1rem;
+    }
+
+    .job-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--black);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .company {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .period {
+      display: inline-block;
+      background: var(--light-gray);
+      color: var(--medium-gray);
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    .experience-description h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin: 1.2rem 0 0.6rem;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    .experience-description ul {
+      margin-left: 1.5rem;
+      color: var(--medium-gray);
+      font-size: 0.95rem;
+    }
+
+    .experience-description li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+      position: relative;
+      padding-left: 0.5rem;
+    }
+
+    .experience-description li::marker {
+      color: var(--gold);
+    }
+
+    /* Education Card */
+    .education-card {
+      background: var(--light-gray);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .degree {
+      font-weight: 700;
+      color: var(--black);
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .institution {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .education-details {
+      color: var(--medium-gray);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Languages & Interests with Icons */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .info-item {
+      background: var(--light-gray);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--medium-gray);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .info-item:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
+    }
+
+    .info-item strong {
+      display: block;
+      color: var(--black);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+    }
+
+    /* Bottom Sections */
+    .bottom-sections {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      .section {
+        page-break-inside: avoid;
+      }
+
+      .experience-item {
+        page-break-inside: avoid;
+      }
+
+      .header::before,
+      .header::after,
+      .profile-image::before {
+        animation: none;
+      }
+
+      .header,
+      .profile-card,
+      .founder-highlight,
+      .skill-item,
+      .info-item,
+      .education-card {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      body {
+        padding: 0;
+      }
+
+      .container {
+        border-radius: 0;
+      }
+
+      .header {
+        padding: 2rem 1.5rem;
+      }
+
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .name-section h1 {
+        font-size: 2rem;
+      }
+
+      .profile-image {
+        width: 150px;
+        height: 150px;
+      }
+
+      .contact-info {
+        grid-template-columns: 1fr;
+      }
+
+      .main-content {
+        padding: 2rem 1.5rem;
+      }
+
+      .section-title {
+        font-size: 1.3rem;
+      }
+
+      .skills-grid,
+      .bottom-sections {
+        grid-template-columns: 1fr;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .founder-highlight {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header with Profile -->
+    <header class="header">
+      <div class="header-content">
+        <div class="name-section">
+          <h1>MARC VAN DER WERF</h1>
+          <p class="title">Brand & RV Specialist | Concept Developer | Founder Beyond the Pitch</p>
+          <div class="contact-info">
+            <div class="contact-item" data-icon="📍">Den Bosch, Netherlands</div>
+            <div class="contact-item" data-icon="📧">marc.vanderwerf@hotmail.com</div>
+            <div class="contact-item" data-icon="📱">+31 639211686</div>
+            <div class="contact-item" data-icon="🔗">LinkedIn: Marc van der Werf</div>
+            <div class="contact-item" data-icon="🌍">travelbeyondthepitch.com</div>
+          </div>
+        </div>
+        
+        <!-- Profile Image Placeholder -->
+        <div class="profile-image">
+          <div class="profile-image-inner">
+            <!-- Vervang 👤 met je foto URL: <img src="JOUW_FOTO_URL" alt="Marc van der Werf"> -->
+            👤
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <span class="accent-dot"></span>
+      <span class="accent-dot"></span>
+      <span class="accent-dot"></span>
+
+      <!-- Profile -->
+      <section class="section">
+        <h2 class="section-title">Profile</h2>
+        <div class="profile-card">
+          <p class="profile-text">
+            Creative and strategic professional with a background in Commercial Economics (Sports Marketing). Passionate about developing concepts, improving commercial performance, and building meaningful connections between people, brands, and cultures. Curious, energetic, and driven to turn ideas into scalable, real‑world impact.
+          </p>
+        </div>
+      </section>
+
+      <!-- Core Skills -->
+      <section class="section">
+        <h2 class="section-title">Core Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-item">Brand & Campaign Management</div>
+          <div class="skill-item">Commercial Strategy</div>
+          <div class="skill-item">Data Quality & Analysis</div>
+          <div class="skill-item">Stakeholder Management</div>
+          <div class="skill-item">Project Management</div>
+          <div class="skill-item">Power BI Reporting</div>
+          <div class="skill-item">Customer Journey Optimization</div>
+          <div class="skill-item">Communication & Networking</div>
+        </div>
+      </section>
+
+      <!-- Founder Highlight -->
+      <section class="section">
+        <h2 class="section-title">Founder Highlight</h2>
+        <div class="founder-highlight">
+          <div class="founder-badge">⚡ Founder & CEO</div>
+          <div class="experience-header">
+            <span class="job-title">Founder</span> — <span class="company">Beyond the Pitch</span>
+            <div class="period">Oct 2025 – Present</div>
+          </div>
+          <p class="founder-tagline">
+            A travel platform using sporting events as a gateway to culture in lesser‑known destinations worldwide. Building a scalable, authentic concept that connects travelers with local communities and unique sports experiences.
+          </p>
+          <div class="experience-description">
+            <h4>Key Responsibilities</h4>
+            <ul>
+              <li>Strategy & concept development</li>
+              <li>Website development & digital presence</li>
+              <li>Partnerships & community building</li>
+              <li>Storytelling, content creation & marketing</li>
+            </ul>
+          </div>
+          <a href="https://www.travelbeyondthepitch.com" class="founder-website">
+            🌍 Visit travelbeyondthepitch.com
+          </a>
+        </div>
+      </section>
+
+      <!-- Work Experience -->
+      <section class="section">
+        <h2 class="section-title">Work Experience</h2>
+
+        <!-- Stellantis -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <span class="job-title">Brand & RV Specialist</span><br>
+            <span class="company">Stellantis Financial Services</span>
+            <div class="period">Aug 2025 – Present</div>
+          </div>
+          <div class="experience-description">
+            <h4>Brand & Campaign Management</h4>
+            <ul>
+              <li>Developed and managed competitive leasing, financing, and service propositions for 14 Stellantis brands</li>
+              <li>Optimized the full customer journey (A–Z) by identifying bottlenecks and implementing improvements</li>
+              <li>Designed and executed commercial strategies to increase sales volumes, margins, and customer satisfaction</li>
+              <li>Advised on pricing strategies and ensured clear communication to dealers and customers</li>
+            </ul>
+            <h4>Global RV Management</h4>
+            <ul>
+              <li>Monitored market trends and product developments to strengthen collaboration with corporate partners</li>
+              <li>Ensured data quality through systematic validation of residual‑value datasets</li>
+              <li>Participated in decision‑making RV meetings with headquarters</li>
+              <li>Built Power BI dashboards including risk analyses and automated alerts</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Get-e -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <span class="job-title">Global Airline Project Manager</span><br>
+            <span class="company">Get-e</span>
+            <div class="period">Sep 2023 – Jul 2025</div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>Facilitated collaboration between international airlines and transport partners</li>
+              <li>Developed and implemented procurement strategies</li>
+              <li>Expanded and optimized the global transport supplier network</li>
+              <li>Managed projects up to €5M in scope</li>
+              <li>Stakeholder management with airlines including Lufthansa, EasyJet, and Qatar Airways</li>
+              <li>Ensured rapid handling of incidents, urgent changes, and emergencies</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ABN AMRO -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <span class="job-title">Data Quality Analyst</span><br>
+            <span class="company">ABN AMRO</span>
+            <div class="period">Sep 2021 – Aug 2023</div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>Analyzed client data for commercial/private banking</li>
+              <li>Assessed financing eligibility for real estate portfolios</li>
+              <li>Managed the client portfolio for account management</li>
+              <li>Coordinated with 10–20 credit specialists</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Moneyou -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <span class="job-title">Client Service Advisor</span><br>
+            <span class="company">Moneyou (ABN AMRO)</span>
+            <div class="period">Sep 2020 – Aug 2021</div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>Supported clients across multiple channels</li>
+              <li>Managed onboarding and account closures</li>
+              <li>Provided guidance throughout the customer journey</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Clubcollect -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <span class="job-title">Customer Success Manager <span style="color: var(--medium-gray); font-weight: 500;">(Internship)</span></span><br>
+            <span class="company">Clubcollect</span>
+            <div class="period">Feb 2020 – Jul 2020</div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>Managed customer relationships and aftersales</li>
+              <li>Delivered SaaS demonstrations and phone support</li>
+              <li>Participated in trade shows, client visits, and feedback sessions</li>
+              <li>Provided training, presentations, and webinars</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Van Dam -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <span class="job-title">Marketing & Content Creation <span style="color: var(--medium-gray); font-weight: 500;">(Internship)</span></span><br>
+            <span class="company">Van Dam & Oosterbaan Advies</span>
+            <div class="period">Feb 2019 – Jul 2019</div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>Created and implemented social media campaigns</li>
+              <li>Managed website updates and content strategy</li>
+              <li>Participated in film and production projects</li>
+              <li>Developed creative and technical online marketing skills</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Sections -->
+      <div class="bottom-sections">
+        <!-- Education -->
+        <section class="section">
+          <h2 class="section-title">Education</h2>
+          <div class="education-card">
+            <div class="institution">Amsterdam University of Applied Sciences</div>
+            <div class="degree">Bachelor of Commercial Economics</div>
+            <div class="education-details">Sports Marketing | 2016 – 2020</div>
+            <div class="education-details">Minor: Online Marketing</div>
+          </div>
+        </section>
+
+        <div>
+          <!-- Languages -->
+          <section class="section">
+            <h2 class="section-title">Languages</h2>
+            <div class="info-grid">
+              <div class="info-item"><strong>Dutch</strong>Native</div>
+              <div class="info-item"><strong>English</strong>Fluent</div>
+              <div class="info-item"><strong>Spanish</strong>Basic</div>
+            </div>
+          </section>
+
+          <!-- Interests -->
+          <section class="section">
+            <h2 class="section-title">Interests</h2>
+            <div class="info-grid">
+              <div class="info-item"><strong>⚽</strong>Football</div>
+              <div class="info-item"><strong>💪</strong>CrossFit</div>
+              <div class="info-item"><strong>✈️</strong>Travel</div>
+              <div class="info-item"><strong>📚</strong>Reading</div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
